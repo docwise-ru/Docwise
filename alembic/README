@@ -1,0 +1,21 @@
+```
+alembic init -t async alembic
+```
+
+```
+alembic revision --autogenerate -m "Create articles table"
+```
+
+```
+alembic upgrade head
+```
+
+```
+config.set_main_option("sqlalchemy.url", settings.db_url)
+```
+
+```
+from app.db.base import Base
+from app.models.example import *
+target_metadata = Base.metadata
+```
