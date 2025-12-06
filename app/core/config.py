@@ -6,10 +6,9 @@ ENV_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 class AuthSettings(BaseModel):
-    lifetime_seconds: int = 3600
-    RESET_PASSWORD_TOKEN_SECRET: str
-    VERIFICATION_TOKEN_SECRET: str
-    tokenUrl: str = "users/login"
+    JWT_SECRET_KEY: str
+    JWT_ALGORITHM: str = "HS256"
+    JWT_TOKEN_LOCATION: list[str] = ["headers"]
 
 
 class Settings(BaseSettings):
